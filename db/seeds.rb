@@ -5,3 +5,6 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+puts 'creating categories'
+categories = Category.create([{name: 'Nightlife', image_url:'https://upload.wikimedia.org/wikipedia/commons/8/8b/Nightlife-in-Vancouver.jpg'}, {name: 'Exploring', image_url:'https://c2.staticflickr.com/6/5345/9826378233_d1843cd9fa_b.jpg'}])
