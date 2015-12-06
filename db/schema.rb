@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151206022345) do
+ActiveRecord::Schema.define(version: 20151206200432) do
 
   create_table "categories", force: :cascade do |t|
     t.string   "name"
@@ -60,13 +60,13 @@ ActiveRecord::Schema.define(version: 20151206022345) do
   create_table "places", force: :cascade do |t|
     t.string   "name"
     t.string   "full_description"
-    t.string   "geo_location"
     t.string   "location"
     t.string   "address"
     t.string   "image_url"
-    t.string   "coordinates"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+    t.datetime "created_at",                                null: false
+    t.datetime "updated_at",                                null: false
+    t.decimal  "lat",              precision: 10, scale: 6
+    t.decimal  "lng",              precision: 10, scale: 6
   end
 
   create_table "ratings", force: :cascade do |t|
@@ -78,17 +78,19 @@ ActiveRecord::Schema.define(version: 20151206022345) do
   end
 
   add_index "ratings", ["route_id"], name: "index_ratings_on_route_id"
+  add_index "ratings", ["user_id", "route_id"], name: "index_ratings_on_user_id_and_route_id", unique: true
   add_index "ratings", ["user_id"], name: "index_ratings_on_user_id"
 
   create_table "route_places", force: :cascade do |t|
     t.integer  "route_id"
     t.integer  "place_id"
-    t.integer  "place_position"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.integer  "position"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   add_index "route_places", ["place_id"], name: "index_route_places_on_place_id"
+  add_index "route_places", ["route_id", "place_id", "position"], name: "index_route_places_on_route_id_and_place_id_and_position", unique: true
   add_index "route_places", ["route_id"], name: "index_route_places_on_route_id"
 
   create_table "routes", force: :cascade do |t|
@@ -96,7 +98,6 @@ ActiveRecord::Schema.define(version: 20151206022345) do
     t.string   "location"
     t.string   "full_description"
     t.string   "image_url"
-    t.float    "rating"
     t.integer  "user_id"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false

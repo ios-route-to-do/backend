@@ -11,12 +11,12 @@ gem 'paperclip', '~> 4.3'
 
 group :development do
   gem 'spring'
-  gem 'pry-rails'
 end
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.0'
   gem 'factory_girl_rails'
+  gem 'pry-rails'
 end
 
 group :test do
