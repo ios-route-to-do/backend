@@ -1,11 +1,16 @@
 Rails.application.routes.draw do
   scope format: false do
     resources :users, only: [] do
-      collection { post 'login' }
-      collection { post 'create' }
-      get 'favorites'
-      get 'outings'
-      get 'own_routes'
+      collection do
+        post 'login'
+        post 'register'
+      end
+
+      member do
+        get 'favorites'
+        get 'outings'
+        get 'routes'
+      end
     end
 
     resources :categories, only: [:index]
