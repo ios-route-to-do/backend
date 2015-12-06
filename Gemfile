@@ -3,15 +3,19 @@ source 'https://rubygems.org'
 
 gem 'rails', '4.2.5'
 gem 'rails-api'
-gem 'spring', group: :development
 gem 'sqlite3'
 
-gem 'factory_girl_rails'
+gem 'active_model_serializers', '0.10.0.rc3'
+gem 'gravatar-ultimate'
 
-gem 'pry-rails', group: :development
+group :development do
+  gem 'spring'
+  gem 'pry-rails'
+end
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.0'
+  gem 'factory_girl_rails'
 end
 
 # To use ActiveModel has_secure_password

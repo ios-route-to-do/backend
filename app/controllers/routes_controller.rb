@@ -12,23 +12,23 @@ class RoutesController < ApplicationController
   end
 
   def finish
-    render json: Outing.create(user_route_params)
+    render json: Outing.create!(user_route_params)
   end
 
   def favorite
-    Favorite.find_or_create_by(user_route_params)
+    Favorite.find_or_create_by!(user_route_params)
 
-    head :no_content
+    head 204
   end
 
   def unfavorite
     favorite = Favorite.find_by(user_route_params)
     if favorite
-      favorite.destroy
+      favorite.destroy!
 
-      head :no_content
+      head 204
     else
-      head :not_found
+      head 404
     end
   end
 
