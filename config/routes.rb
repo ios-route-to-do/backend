@@ -15,7 +15,7 @@ Rails.application.routes.draw do
 
     resources :categories, only: [:index]
 
-    # upload image ala cdn
+    resources :images, only: [:show, :create]
 
     resources :routes, only: [:create] do
       get 'trending', on: :collection
