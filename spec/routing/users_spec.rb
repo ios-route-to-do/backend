@@ -1,6 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe UsersController, type: :routing do
+  it 'GET /users/1 routes to #login' do
+    expect(get: '/users/1').to route_to('users#show', id: '1')
+  end
 
   it 'POST /users/login routes to #login' do
     expect(post: '/users/login').to route_to('users#login')
