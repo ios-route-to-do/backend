@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151206014057) do
+ActiveRecord::Schema.define(version: 20151206022345) do
 
   create_table "categories", force: :cascade do |t|
     t.string   "name"
@@ -29,6 +29,15 @@ ActiveRecord::Schema.define(version: 20151206014057) do
 
   add_index "favorites", ["route_id"], name: "index_favorites_on_route_id"
   add_index "favorites", ["user_id"], name: "index_favorites_on_user_id"
+
+  create_table "images", force: :cascade do |t|
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+    t.string   "attachment_file_name"
+    t.string   "attachment_content_type"
+    t.integer  "attachment_file_size"
+    t.datetime "attachment_updated_at"
+  end
 
   create_table "locations", force: :cascade do |t|
     t.string   "name"

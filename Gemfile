@@ -7,6 +7,7 @@ gem 'sqlite3'
 
 gem 'active_model_serializers', '0.10.0.rc3'
 gem 'gravatar-ultimate'
+gem 'paperclip', '~> 4.3'
 
 group :development do
   gem 'spring'
@@ -16,6 +17,10 @@ end
 group :development, :test do
   gem 'rspec-rails', '~> 3.0'
   gem 'factory_girl_rails'
+end
+
+group :test do
+  gem 'simplecov'
 end
 
 # To use ActiveModel has_secure_password
