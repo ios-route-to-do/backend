@@ -9,7 +9,7 @@ class ImagesController < ApplicationController
   end
 
   def create
-    Image.create!(image_params)
+    render json: {image_url: image_url(Image.create!(image_params))}
   end
 
   private
