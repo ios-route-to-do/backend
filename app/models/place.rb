@@ -33,7 +33,7 @@ class Place < ActiveRecord::Base
     }
 
     places.businesses.each.map do |business|
-      if business.location && business.location.coordinate
+      if business.location && business.location.coordinate && business.image_url
         response[:places] << {
           name: business.name,
           full_description: business.snippet_text,
