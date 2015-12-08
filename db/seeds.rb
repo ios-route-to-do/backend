@@ -19,6 +19,13 @@ users = [
     first_name: "Matias",
     last_name: "Arenas",
     email: "matiasarenas@gmail.com"
+  },
+  {
+    username: "yonpols",
+    location: "Mountain View",
+    first_name: "Juan Pablo",
+    last_name: "Marzetti",
+    email: "yonpols@gmail.com"
   }
 ]
 
