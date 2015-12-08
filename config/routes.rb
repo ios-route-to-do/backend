@@ -28,5 +28,11 @@ Rails.application.routes.draw do
     end
 
     resources :images, only: [:show, :create]
+
+    resources :places, only: [] do
+      collection do
+        get 'search'
+      end
+    end
   end
 end
