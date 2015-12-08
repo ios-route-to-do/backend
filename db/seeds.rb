@@ -86,6 +86,13 @@ routes = [
     full_description: "What better way to hang out with friends than doing some sports, getting dinner and then a few beers to wrap up the night? Take this route if you don't want to feel too guilty after all those beers ;)",
     image_url: "https://irs1.4sqi.net/img/general/width960/645907_aZJsQzJ8KzqJr3bw2BLdfuG3PEeLvzfewWfJjLQMtno.jpg",
     user_id: 3
+  },
+  {
+    title: "All night long !",
+    location: "Oakland",
+    full_description: "mhmhmhmhh",
+    image_url: "https://backoftheferry.files.wordpress.com/2014/10/sf-pi-bar.jpg",
+    user_id: 3
   }
 ]
 
@@ -108,6 +115,11 @@ end
 
 routes.each do |params|
   Route.find_or_create_by!(params)
+end
+
+# fill duplicated routes
+11.times do
+  Route.last.dup.save
 end
 
 route = Route.first
