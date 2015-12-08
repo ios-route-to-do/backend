@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 
 gem 'rails', '4.2.5'
 gem 'rails-api'
-gem 'sqlite3'
+gem 'pg'
 
 gem 'active_model_serializers', '0.10.0.rc3'
 gem 'gravatar-ultimate'
@@ -16,6 +16,7 @@ group :development do
 end
 
 group :development, :test do
+  gem 'sqlite3'
   gem 'rspec-rails', '~> 3.0'
   gem 'factory_girl_rails'
   gem 'pry-rails'
