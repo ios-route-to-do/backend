@@ -5,11 +5,11 @@ class Route < ActiveRecord::Base
   has_many :places, through: :route_places, source: :place
   has_many :ratings
 
-  def self.newly_created(limit: 10)
+  def self.newly_created(limit: 20)
     all.order(id: :desc).limit(limit)
   end
 
-  def self.trending(limit: 10)
+  def self.trending(limit: 20)
     routes = all.where(id: Outing.order(id: :desc).select(:route_id).distinct).limit(limit)
     routes = all.order(id: :desc).limit(limit) if routes.empty?
 
