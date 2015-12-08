@@ -12,6 +12,13 @@ users = [
     first_name: "Pepito",
     last_name: "Perez",
     email: "pperez@routetodo.com"
+  },
+  {
+    username: "matias",
+    location: "Palo Alto",
+    first_name: "Matias",
+    last_name: "Arenas",
+    email: "matiasarenas@gmail.com"
   }
 ]
 
@@ -44,13 +51,43 @@ places = [
   }
 ]
 
+places_2 = [
+  {
+    name: "Mission Playground & Pool", location: "San Francisco",
+    address: "1 Linda St, San Francisco, CA 94110, United States",
+    full_description: "Join the fun on this busy, well-maintained playground or make a splash at the City’s only outdoor pool. Two tennis courts, a basketball court and a blacktop soccer pitch are available for games. Relax on a bench or take stroll through the grassy area. The playground shares a site with the much-loved Mission Clubhouse.",
+    image_url: "https://irs3.4sqi.net/img/general/width960/3818089_KQbrDCpSW6dArDfASg5dz7AMlEVH32dqP9aljFSkQVE.jpg",
+    lat:37.7592917, lng:-122.4223006
+  },
+  {
+    name: "La Taqueria", location: "San Francisco",
+    address: "2889 Mission St (at 25th St), San Francisco, CA 94110, United States",
+    full_description: "It wouldn’t be San Francisco without The Mission’s squadron of gut-busting taquerias. This one continues to lead the pack with unwavering rave reviews for its sublime, spot-on Mexico staples, including a recent America's Best Burrito title after an extensive FiveThirtyEight bracket.",
+    image_url: "https://irs1.4sqi.net/img/general/width960/8858674_Q--H5bpAnNykVmWU6JYWwcHf01jqPccWYl2Ta_c1bRY.jpg",
+    lat:37.7508925, lng:-122.4180875
+  },
+  {
+    name: "Laszlo", location: "San Francisco",
+    address: "2526 Mission St, San Francisco, CA 94110",
+    full_description: "Bare bronzed walls elicit a warehouse feel, while a small upstairs creates an open-loft effect. Between the two levels (small tables below, bar stools above), seating is ample. Laszlo is your neighborhood bar, it’s your special occasion bar, it’s your comfort zone.",
+    image_url: "http://www.laszlobar.com/constructivism/wp-content/themes/Laszlo/images/6.jpg",
+    lat:37.7565048, lng:-122.4191014
+  }
+]
 routes = [
   {
     title: "The Beer Route",
     location: "San Francisco",
     full_description: "There are plenty of bars in SF where you can grab a beer, but less-plenty of bars in SF that you can call bona fide beer bars. Here're eight that we think not only make the cut, but make it better than anyone else.",
     image_url: "http://33.media.tumblr.com/b6ed58627630bb8652ab6c3068be565b/tumblr_inline_n91a7hHpIp1qb3qcf.jpg",
-    user_id: 1
+    user_id: 3
+  },
+  {
+    title: "Sports and Fun",
+    location: "San Francisco",
+    full_description: "What better way to hang out with friends than doing some sports, getting dinner and then a few beers to wrap up the night? Take this route if you don't want to feel too guilty after all those beers ;)",
+    image_url: "https://irs1.4sqi.net/img/general/width960/645907_aZJsQzJ8KzqJr3bw2BLdfuG3PEeLvzfewWfJjLQMtno.jpg",
+    user_id: 3
   }
 ]
 
@@ -71,6 +108,10 @@ places.each do |params|
   Place.find_or_create_by!(params)
 end
 
+places_2.each do |params|
+  Place.find_or_create_by!(params)
+end
+
 routes.each do |params|
   Route.find_or_create_by!(params)
 end
@@ -80,6 +121,13 @@ Place.first(3).each_with_index do |place, position|
   RoutePlace.find_or_create_by!(route: route, place: place, position: position)
 end
 
+route_2 = Route.second
+Place.all[3..5].each_with_index do |place, position|
+  RoutePlace.find_or_create_by!(route: route_2, place: place, position: position)
+end
+
 ratings.each do |params|
   Rating.find_or_create_by!(params)
 end
+
+Favorite.find_or_create_by!({user_id: 3, route_id: 2})
