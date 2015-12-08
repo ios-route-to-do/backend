@@ -17,7 +17,7 @@ Rails.application.routes.draw do
 
     resources :images, only: [:show, :create]
 
-    resources :routes, only: [:show, :create] do
+    resources :routes, only: [:show, :create, :update] do
       get 'trending', on: :collection
       get 'new', on: :collection
 

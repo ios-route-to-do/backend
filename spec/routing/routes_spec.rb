@@ -10,6 +10,15 @@ RSpec.describe RoutesController, type: :routing do
     expect(get: '/routes/new').to route_to('routes#new')
   end
 
+  it 'POST /routes routes to #create' do
+    expect(post: '/routes').to route_to('routes#create')
+  end
+
+  it 'PUT /routes/1 routes to #update' do
+    expect(put: '/routes/1').to route_to('routes#update', id: '1')
+  end
+
+
   it 'POST /routes/1/rate routes to #rate' do
     expect(post: '/routes/1/rate').to route_to('routes#rate', id: '1')
   end
@@ -25,5 +34,4 @@ RSpec.describe RoutesController, type: :routing do
   it 'POST /routes/1/unfavorite routes to #unfavorite' do
     expect(post: '/routes/1/unfavorite').to route_to('routes#unfavorite', id: '1')
   end
-
 end
