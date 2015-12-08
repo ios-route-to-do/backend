@@ -4,7 +4,7 @@ class RoutesController < ApplicationController
   end
 
   def create
-    route = Route.find_or_initialize_by(create_route_params)
+    route = Route.find_or_initialize_by(route_params)
 
     if route.persisted?
       render json: 'Route already exists', status: 409
@@ -14,6 +14,25 @@ class RoutesController < ApplicationController
     ActiveRecord::Base.transaction do
       places_params[:places].each_with_index do |place_params, position|
         place = Place.find_or_initialize_by(place_params)
+        route.route_places << RoutePlace.new(place: place, position: position)
+      end
+
+      route.save!
+      render json: route, status: 201
+    end
+  rescue ActiveRecord::RecordInvalid
+    render json: {errors: route.errors.full_messages}, status: 409
+  end
+
+  def update
+    route = Route.find(params[:id])
+
+    ActiveRecord::Base.transaction do
+      route.assign_attributes(route_params)
+
+      places_params[:places].each_with_index do |place_params, position|
+        place = Place.find_or_initialize_by(place_params)
+        route.route_places.clear
         route.route_places << RoutePlace.new(place: place, position: position)
       end
 
@@ -62,7 +81,7 @@ class RoutesController < ApplicationController
     {user_id: params[:user_id], route_id: params[:id]}
   end
 
-  def create_route_params
+  def route_params
     params.require(:places)
     params.permit(:title, :location, :full_description, :image_url, :user_id)
   end
