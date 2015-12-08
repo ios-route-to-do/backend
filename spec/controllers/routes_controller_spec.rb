@@ -6,6 +6,17 @@ RSpec.describe RoutesController, type: :controller do
   let(:route) { FactoryGirl.create(:route) }
   let(:favorite) { FactoryGirl.create(:favorite, user: user, route: route) }
 
+  describe 'GET #show' do
+    it 'returns http success' do
+      get :show, id: route.id
+      expect(response).to have_http_status(:success)
+    end
+  end
+
+  describe 'POST #create' do
+    it 'returns http success'
+  end
+
   describe 'GET #trending' do
     it 'returns http success' do
       get :trending

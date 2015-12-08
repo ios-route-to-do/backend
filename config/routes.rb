@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   scope format: false do
-    resources :users, only: [] do
+    resources :users, only: [:show] do
       collection do
         post 'login'
         post 'register'
@@ -17,7 +17,7 @@ Rails.application.routes.draw do
 
     resources :images, only: [:show, :create]
 
-    resources :routes, only: [:create] do
+    resources :routes, only: [:show, :create] do
       get 'trending', on: :collection
       get 'new', on: :collection
 

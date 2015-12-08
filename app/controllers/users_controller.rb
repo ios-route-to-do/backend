@@ -1,4 +1,8 @@
 class UsersController < ApplicationController
+  def show
+    render json: User.find_by!(id: params[:id])
+  end
+
   def login
     render json: User.find_by!(email: params[:email])
   end

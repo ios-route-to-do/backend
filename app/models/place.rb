@@ -1,4 +1,5 @@
 class Place < ActiveRecord::Base
+  has_many :route_places
 
   def self.search(params)
     terms = params.delete(:query)

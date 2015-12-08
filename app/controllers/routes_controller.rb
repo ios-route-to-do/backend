@@ -1,4 +1,12 @@
 class RoutesController < ApplicationController
+  def show
+    render json: Route.find(params[:id])
+  end
+
+  def create
+    fail NotImplementedError
+  end
+
   def trending
     render json: Route.trending(limit: params[:limit])
   end
