@@ -1,12 +1,6 @@
 class ApplicationController < ActionController::API
   before_filter :load_user
 
-  def default_serializer_options
-    {
-      root: false
-    }
-  end
-
   private
   def load_user
     @user = User.find(request.headers['X-Jopp-User-Id']) if request.headers['X-Jopp-User-Id']

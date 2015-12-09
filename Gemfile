@@ -4,7 +4,7 @@ ruby '2.2.3'
 gem 'rails', '4.2.5'
 gem 'rails-api'
 
-gem 'active_model_serializers', '~> 0.8.0'
+gem 'active_model_serializers', github: 'rails-api/active_model_serializers', branch: :master
 gem 'gravatar-ultimate'
 gem 'paperclip', '~> 4.3'
 gem 'aws-sdk', '< 2.0'
