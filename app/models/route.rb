@@ -5,6 +5,8 @@ class Route < ActiveRecord::Base
   has_many :places, through: :route_places, source: :place
   has_many :ratings
 
+  attr_accessor :favorite
+
   def self.newly_created(limit: 20)
     all.order(id: :desc).limit(limit)
   end

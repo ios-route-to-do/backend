@@ -18,21 +18,21 @@ class UsersController < ApplicationController
   end
 
   def favorites
-    user = User.find(params[:id])
+    @user = User.find(params[:id])
 
-    render json: user.favorite_routes
+    render json: add_user_metadata_to_routes(@user.favorite_routes)
   end
 
   def outings
-    user = User.find(params[:id])
+    @user = User.find(params[:id])
 
-    render json: user.outing_routes
+    render json: add_user_metadata_to_routes(@user.outing_routes)
   end
 
   def routes
-    user = User.find(params[:id])
+    @user = User.find(params[:id])
 
-    render json: user.routes
+    render json: add_user_metadata_to_routes(@user.routes)
   end
 
   private
