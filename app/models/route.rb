@@ -8,11 +8,11 @@ class Route < ActiveRecord::Base
   attr_accessor :favorite
 
   def self.newly_created(limit: 20)
-    all.order(id: :desc).limit(limit)
+    all.includes(:ratings).order(id: :desc).limit(limit)
   end
 
   def self.trending(limit: 20)
-    routes = all.where(id: Outing.order(id: :desc).select(:route_id).distinct).limit(limit)
+    routes = all.includes(:ratings).where(id: Outing.order(id: :desc).select(:route_id).distinct).limit(limit)
     routes = self.newly_created(limit: limit) if routes.empty?
 
     routes

@@ -7,7 +7,7 @@ class RoutesController < ApplicationController
     route = Route.find_or_initialize_by(route_params)
 
     if route.persisted?
-      render json: 'Route already exists', status: 409
+      render json: 'Route already exists', status: :unprocessable_entity
       return
     end
 
@@ -18,10 +18,10 @@ class RoutesController < ApplicationController
       end
 
       route.save!
-      render json: add_user_metatada_to_route(route), status: 201
+      render json: add_user_metatada_to_route(route), status: :created
     end
   rescue ActiveRecord::RecordInvalid
-    render json: {errors: route.errors.full_messages}, status: 409
+    render json: {errors: route.errors.full_messages}, status: :unprocessable_entity
   end
 
   def update
@@ -37,10 +37,10 @@ class RoutesController < ApplicationController
       end
 
       route.save!
-      render json: add_user_metatada_to_route(route), status: 201
+      render json: add_user_metatada_to_route(route), status: :created
     end
   rescue ActiveRecord::RecordInvalid
-    render json: {errors: route.errors.full_messages}, status: 409
+    render json: {errors: route.errors.full_messages}, status: :unprocessable_entity
   end
 
   def trending
@@ -52,7 +52,9 @@ class RoutesController < ApplicationController
   end
 
   def rate
-    render json: Rating.rate(*user_route_params.merge(rating: params[:rating]).values)
+    Rating.rate(*user_route_params.merge(rating: params[:rating]).values)
+
+    render json: {rating: Route.find(params[:id]).rating }
   end
 
   def finish
@@ -62,7 +64,7 @@ class RoutesController < ApplicationController
   def favorite
     Favorite.find_or_create_by!(user_route_params)
 
-    head 204
+    head :no_content
   end
 
   def unfavorite
@@ -70,9 +72,9 @@ class RoutesController < ApplicationController
     if favorite
       favorite.destroy!
 
-      head 204
+      head :no_content
     else
-      head 404
+      head :not_found
     end
   end
 
