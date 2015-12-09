@@ -44,11 +44,11 @@ class RoutesController < ApplicationController
   end
 
   def trending
-    render json: add_user_metatada_to_routes(Route.trending(limit: params[:limit]))
+    render json: add_user_metadata_to_routes(Route.trending(limit: params[:limit]))
   end
 
   def new
-    render json: add_user_metatada_to_routes(Route.newly_created(limit: params[:limit]))
+    render json: add_user_metadata_to_routes(Route.newly_created(limit: params[:limit]))
   end
 
   def rate
