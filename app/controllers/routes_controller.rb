@@ -1,6 +1,6 @@
 class RoutesController < ApplicationController
   def show
-    render json: Route.find(params[:id])
+    render json: add_user_metatada_to_route(Route.find(params[:id]))
   end
 
   def create
@@ -18,7 +18,7 @@ class RoutesController < ApplicationController
       end
 
       route.save!
-      render json: route, status: 201
+      render json: add_user_metatada_to_route(route), status: 201
     end
   rescue ActiveRecord::RecordInvalid
     render json: {errors: route.errors.full_messages}, status: 409
@@ -37,18 +37,18 @@ class RoutesController < ApplicationController
       end
 
       route.save!
-      render json: route, status: 201
+      render json: add_user_metatada_to_route(route), status: 201
     end
   rescue ActiveRecord::RecordInvalid
     render json: {errors: route.errors.full_messages}, status: 409
   end
 
   def trending
-    render json: Route.trending(limit: params[:limit])
+    render json: add_user_metatada_to_routes(Route.trending(limit: params[:limit]))
   end
 
   def new
-    render json: Route.newly_created(limit: params[:limit])
+    render json: add_user_metatada_to_routes(Route.newly_created(limit: params[:limit]))
   end
 
   def rate
