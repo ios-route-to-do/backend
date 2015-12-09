@@ -7,6 +7,7 @@ gem 'rails-api'
 gem 'active_model_serializers', '0.10.0.rc3'
 gem 'gravatar-ultimate'
 gem 'paperclip', '~> 4.3'
+gem 'aws-sdk', '< 2.0'
 
 gem 'yelp'
 

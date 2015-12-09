@@ -1,19 +1,15 @@
 class ImagesController < ApplicationController
   def show
     image = Image.find(params[:id])
-    send_file(image.attachment.path,
-      filename: image.attachment_file_name,
-      type: image.attachment_content_type,
-      disposition: 'attachment'
-    )
+    render json: {image_url: image.attachment.url}
   end
 
   def create
-    render json: {image_url: image_url(Image.create!(image_params))}
+    image = Image.create!(image_params)
+    render json: {image_url: image.attachment.url}
   end
 
   private
-
   def image_params
     params.require(:attachment)
     params.permit(:attachment)
