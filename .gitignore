@@ -16,5 +16,6 @@
 !/log/.keep
 /tmp
 /.ruby-version
+/config/environments/amazon_keys.rb
 /coverage
 /public
