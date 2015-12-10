@@ -32,6 +32,8 @@ Route.create!([
   {title: "Groupon PA and After Office", location: "Palo Alto", full_description: "Go to work and then enjoy a fun happy hour and dinner with your co-workers ;)", image_url: "https://scontent-sjc2-1.cdninstagram.com/hphotos-xat1/t51.2885-15/e15/1689568_686194394756412_1880177798_n.jpg", user_id: 3},
   {title: "Mexican Marathon!", location: "San Francisco", full_description: "om nom nom gulp slup AWYEAAH!!!", image_url: "http://i.imgur.com/oaXQZ.jpg", user_id: 5},
   {title: "Unusual Stuff in SF", location: "San Francisco", full_description: "Unusual attractions and things to do in San Francisco", image_url: "http://i.imgur.com/NbK0ywA.jpg", user_id: 5},
+  {title: "Deluxe SF Shopping", location: "San Francisco", full_description: "Indulge yourself in a very high end shopping spree <3 #richkidsofinstagram", image_url: "http://richkids.1meee.com/wp-content/uploads/2015/05/rich-kids-of-instagram-11.jpg", user_id: 3},
+  {title: "Bay Area top tech companies", location: "Bay Area", full_description: "Go through a visit of the bay area most innovative and exciting tech companies.", image_url: "https://hackthe.computer/problems/recover/image.jpg", user_id: 3}  
   # {title: "", location: "San Francisco", full_description: "", image_url: "", user_id: 5},
 ])
 
@@ -51,6 +53,12 @@ Place.create!([
   {name: "Mission Dolores Cemetery", full_description: "The oldest burial ground in the city, final resting place of city founders, Ohlone natives and murderers alike", location: "San Francisco", address: "Mission Dolores, 3321 16th Street, San Francisco, California, 94110", image_url: "http://i.imgur.com/kcAoyaS.jpg", lat: "37.7643898", lng: "-122.429756"},
   {name: "Fleishhacker Pool Ruins", full_description: "Forgotten and then destroyed by fire, this was once one of the largest saltwater swimming pools in the world", location: "San Francisco", address: "San Francisco Zoo, San Francisco, California, 94132", image_url: "http://i.imgur.com/8r6VsCQ.jpg", lat: "37.7329613", lng: "-122.5051438"},
   {name: "Vaillancourt Fountain", full_description: "This concrete tangle of square pipes has stood as a proud thorn in the city's side since the '70s", location: "San Francisco", address: "Justin Herman Plaza, San Francisco, California, 94111", image_url: "http://i.imgur.com/2Gb2uAZ.jpg", lat: "37.7951432", lng: "-122.3973862"},
+  {name: "Louis Vuitton", full_description: "Hubby and I first visit to Louis Vuitton Union Square was AMAZING!  Jasmine was our sales person and I couldn't thank her enough for making this experience...", location: "San Francisco", address: "233 Geary St, Union Square, San Francisco, CA 94102", image_url: "http://s3-media4.fl.yelpcdn.com/bphoto/NprCYv6tFqsXoKnBfZyxIQ/l.jpg", lat: "37.787243", lng: "-122.406883"},
+  {name: "Saison", full_description: "The chef put a lot of thoughts into each dish and everything is very delicately prepared. While acknowledging that the chef picks the best ingredients for...", location: "San Francisco", address: "178 Townsend St, SoMa, San Francisco, CA 94107", image_url: "http://s3-media2.fl.yelpcdn.com/bphoto/YdX61Pyl5-goBKmgcekV9A/l.jpg", lat: "37.779527", lng: "-122.392291"},
+  {name: "Prada", full_description: "Well I went there not knowing I was gonna buy anything.  But I did....yikes, but I must say looking at all the other reviews I sadden.   I had  a great...", location: "San Francisco", address: "201 Post St, Union Square, San Francisco, CA 94108", image_url: "http://s3-media4.fl.yelpcdn.com/bphoto/W4OdSInqY3kOprn7nbR1IQ/l.jpg", lat: "37.78841", lng: "-122.405411"},
+  {name: "Facebook", full_description: "FB for life! It's like a mini city inside. There's a small road and a few places to eat if you happen to be taking a tour. The only way to get a tour is to...", location: "Menlo Park", address: "1 Hacker Way, Menlo Park, CA 94025", image_url: "http://s3-media2.fl.yelpcdn.com/bphoto/267vPindAspD_E4oj60Mrw/l.jpg", lat: "37.482466", lng: "-122.150041"},
+  {name: "Google", full_description: "The Googleplex is the corporate headquarters complex of Google, Inc., located at 1600 Amphitheatre Parkway in Mountain View, Santa Clara County, California, United States, near San Jose.", location: "Mountain View", address:"1600 Amphitheatre Pkwy, Mountain View, CA 94043", image_url:"http://www.escubes.com/wp-content/uploads/2015/06/335498-googleplex.jpg", lat: "37.422046", lng: "-122.084148"},
+  {name: "Groupon", full_description: "We're changing local commerce on a global scale. Start your day at the office to prepare your thirst for the after office happy hour :D.", location: "Palo Alto", address: "3101 Park Blvd, Palo Alto, CA 94306", image_url: "https://jobs.groupon.com/careers/assets/pa_exterior.jpg", lat: "37.425237", lng: "-122.136492"}
   # {name: "", full_description: "", location: "", address: "", image_url: "", lat: "", lng: "-"},
 ])
 
@@ -69,7 +77,13 @@ RoutePlace.create!([
   {route_id: 4, place_id: 12, position: 2},
   {route_id: 5, place_id: 13, position: 0},
   {route_id: 5, place_id: 14, position: 1},
-  {route_id: 5, place_id: 15, position: 2}
+  {route_id: 5, place_id: 15, position: 2},
+  {route_id: 6, place_id: 16, position: 0},
+  {route_id: 6, place_id: 17, position: 1},
+  {route_id: 6, place_id: 18, position: 2},
+  {route_id: 7, place_id: 19, position: 0},
+  {route_id: 7, place_id: 20, position: 1},
+  {route_id: 7, place_id: 21, position: 2}
 ])
 
 Favorite.create!([
