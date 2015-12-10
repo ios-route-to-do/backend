@@ -19,7 +19,7 @@ class Route < ActiveRecord::Base
   end
 
   def rating
-    ratings.average(:rating)
+    ratings.average(:rating) || 0.0
   end
 
 end
