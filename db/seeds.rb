@@ -135,15 +135,13 @@ end
   Route.last.dup.save
 end
 
-route = Route.first
-Place.first(3).each_with_index do |place, position|
-  RoutePlace.find_or_create_by!(route: route, place: place, position: position)
-end
+all_places = Place.all.to_a
 
-route_2 = Route.second
-# Place.last(3).each_with_index do |place, position|
-Place.all[3..5].each_with_index do |place, position|
-  RoutePlace.find_or_create_by!(route: route_2, place: place, position: position)
+Route.all.each do |route|
+  places = all_places.sample(3)
+  places.each_with_index  do |place, position|
+    RoutePlace.find_or_create_by!(route: route, place: place, position: position)
+  end
 end
 
 ratings.each do |params|
