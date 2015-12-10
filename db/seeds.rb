@@ -27,7 +27,7 @@ User.create!([
 end
 
 Route.create!([
-  {title: "The Beer Route", location: "San Francisco", full_description: "There are plenty of bars in SF where you can grab a beer, but less-plenty of bars in SF that you can call bona fide beer bars. Here're eight that we think not only make the cut, but make it better than anyone else.", image_url: "http://33.media.tumblr.com/b6ed58627630bb8652ab6c3068be565b/tumblr_inline_n91a7hHpIp1qb3qcf.jpg", user_id: 2},
+  {title: "The Beer Route", location: "San Francisco", full_description: "There are plenty of bars in SF where you can grab a beer, but less-plenty of bars in SF that you can call bona fide beer bars. Here're eight that we think not only make the cut, but make it better than anyone else.", image_url: "https://upload.wikimedia.org/wikipedia/commons/4/43/Bar-P1030319.jpg", user_id: 2},
   {title: "Sports and Fun", location: "San Francisco", full_description: "What better way to hang out with friends than doing some sports, getting dinner and then a few beers to wrap up the night? Take this route if you don't want to feel too guilty after all those beers ;)", image_url: "https://irs1.4sqi.net/img/general/width960/645907_aZJsQzJ8KzqJr3bw2BLdfuG3PEeLvzfewWfJjLQMtno.jpg", user_id: 2},
   {title: "Groupon PA and After Office", location: "Palo Alto", full_description: "Go to work and then enjoy a fun happy hour and dinner with your co-workers ;)", image_url: "https://scontent-sjc2-1.cdninstagram.com/hphotos-xat1/t51.2885-15/e15/1689568_686194394756412_1880177798_n.jpg", user_id: 3},
   {title: "Mexican Marathon!", location: "San Francisco", full_description: "om nom nom gulp slup AWYEAAH!!!", image_url: "http://i.imgur.com/oaXQZ.jpg", user_id: 5},
