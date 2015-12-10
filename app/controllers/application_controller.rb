@@ -9,6 +9,8 @@ class ApplicationController < ActionController::API
   def add_user_metatada_to_route(route)
     if @user.present?
       route.favorite = @user.favorite_routes.include?(route)
+    else
+      route.favorite = false
     end
     route
   end

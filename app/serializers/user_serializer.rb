@@ -3,9 +3,9 @@ class UserSerializer < ActiveModel::Serializer
     :last_name, :profile_image_url, :created_at,
     :updated_at
 
-  has_many :favorites, serializer: RoutePreviewSerializer
-  has_many :outings, serializer: RoutePreviewSerializer
-  has_many :routes, serializer: RoutePreviewSerializer
+  has_many :routes
+  has_many :favorites
+  has_many :outings
 
   def profile_image_url
     object.processed_profile_image_url
