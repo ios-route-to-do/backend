@@ -1,3 +1,5 @@
+require File.join(File.dirname(__FILE__), 'amazon_keys.rb')
+
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
@@ -31,8 +33,8 @@ Rails.application.configure do
     storage: :s3,
     s3_credentials: {
       bucket: 'jopp-dev',
-      access_key_id: 'AKIAJ5DBX7QGXTE3YYRQ',
-      secret_access_key: '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'
+      access_key_id: AWS_ACCESS_KEY_ID,
+      secret_access_key: AWS_SECRET_ACCESS_KEY
     }
   }
 end
