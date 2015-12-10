@@ -33,10 +33,10 @@ categories = [
   {name: "Nightlife", image_url: "https://upload.wikimedia.org/wikipedia/commons/8/8b/Nightlife-in-Vancouver.jpg"},
   {name: "Exploring", image_url: "https://c2.staticflickr.com/6/5345/9826378233_d1843cd9fa_b.jpg"},
   {name: "Outdoors", image_url: "https://pixabay.com/static/uploads/photo/2015/02/04/18/22/outdoors-624111_960_720.jpg"},
-  {name: "Sports", image_url: "https://pixabay.com/static/uploads/photo/2015/03/26/09/46/skateboard-690269_960_720.jpg"},
+  {name: "Sports", image_url: "https://pixabay.com/static/uploads/photo/2015/10/12/15/41/kayak-984566_960_720.jpg"},
   {name: "Tourism", image_url: "https://pixabay.com/static/uploads/photo/2013/04/11/19/46/louvre-102840_960_720.jpg"},
   {name: "Family", image_url: "https://pixabay.com/static/uploads/photo/2015/08/15/17/35/helsinki-889834_960_720.jpg"},
-  {name: "Couples", image_url: "https://pixabay.com/static/uploads/photo/2015/09/01/17/35/mountain-917320_960_720.jpg"},
+  {name: "Couples", image_url: "https://pixabay.com/static/uploads/photo/2015/10/13/17/44/maple-leaf-986540_960_720.jpg"},
   {name: "Food Discovery", image_url: "https://pixabay.com/static/uploads/photo/2015/11/05/05/26/fruits-1023722_960_720.jpg"}
 ]
 
