@@ -10,17 +10,27 @@ Category.create!([
 ])
 
 User.create!([
-  {username: "jdoe", location: "San Francisco", first_name: "John", last_name: "Doe", profile_image_url: nil, email: "jdoe@jopp.com"},
-  {username: "pperez", location: "San Francisco", first_name: "Pepito", last_name: "Perez", profile_image_url: nil, email: "pperez@jopp.com"},
   {username: "matias", location: "Palo Alto", first_name: "Matias", last_name: "Arenas", profile_image_url: nil, email: "matiasarenas@gmail.com"},
   {username: "yonpols", location: "Mountain View", first_name: "Juan Pablo", last_name: "Marzetti", profile_image_url: nil, email: "yonpols@gmail.com"},
   {username: "ggayan", location: "Mountain View", first_name: "Gabriel", last_name: "Gayan", profile_image_url: nil, email: "gabrielgayan@gmail.com"}
 ])
 
+5.times do
+  User.create!(
+    username: Faker::Internet.user_name,
+    location: Faker::Address.city,
+    first_name: Faker::Name.first_name,
+    last_name: Faker::Name.last_name,
+    profile_image_url: nil,
+    email: Faker::Internet.email
+  )
+end
+
 Route.create!([
   {title: "The Beer Route", location: "San Francisco", full_description: "There are plenty of bars in SF where you can grab a beer, but less-plenty of bars in SF that you can call bona fide beer bars. Here're eight that we think not only make the cut, but make it better than anyone else.", image_url: "http://33.media.tumblr.com/b6ed58627630bb8652ab6c3068be565b/tumblr_inline_n91a7hHpIp1qb3qcf.jpg", user_id: 2},
   {title: "Sports and Fun", location: "San Francisco", full_description: "What better way to hang out with friends than doing some sports, getting dinner and then a few beers to wrap up the night? Take this route if you don't want to feel too guilty after all those beers ;)", image_url: "https://irs1.4sqi.net/img/general/width960/645907_aZJsQzJ8KzqJr3bw2BLdfuG3PEeLvzfewWfJjLQMtno.jpg", user_id: 2},
-  {title: "Groupon PA and After Office", location: "Palo Alto", full_description: "Go to work and then enjoy a fun happy hour and dinner with your co-workers ;)", image_url: "https://scontent-sjc2-1.cdninstagram.com/hphotos-xat1/t51.2885-15/e15/1689568_686194394756412_1880177798_n.jpg", user_id: 3}
+  {title: "Groupon PA and After Office", location: "Palo Alto", full_description: "Go to work and then enjoy a fun happy hour and dinner with your co-workers ;)", image_url: "https://scontent-sjc2-1.cdninstagram.com/hphotos-xat1/t51.2885-15/e15/1689568_686194394756412_1880177798_n.jpg", user_id: 3},
+  {title: "Mexican Marathon!", location: "San Francisco", full_description: "om nom nom gulp slup AWYEAAH!!!", image_url: "http://i.imgur.com/oaXQZ.jpg", user_id: 5}
 ])
 
 Place.create!([
@@ -33,6 +43,10 @@ Place.create!([
   {name: "Groupon", full_description: "We're changing local commerce on a global scale. Start your day at the office to prepare your thirst for the after office happy hour :D.", location: "Palo Alto", address: "3101 Park Blvd, Palo Alto, CA 94306", image_url: "https://jobs.groupon.com/careers/assets/pa_exterior.jpg", lat: "37.425237", lng: "-122.136492"},
   {name: "Antonio's Nut House", full_description: "A Palo Alto Classic and Groupon classic! Come here enjoy some beers, eat some nuts and get some foosball games with your co-workers.", location: "Palo Alto", address: "321 S California Ave, Palo Alto, CA 94306", image_url: "http://s3-media2.fl.yelpcdn.com/bphoto/FxGRBdmNsW56Uo21Wh6y5g/o.jpg", lat: "37.427074", lng: "-122.143917"},
   {name: "Palo Alto Sol", full_description: "Very delicious authentic Mexican food! Come to this place to finish your night (and route :P) and make sure you end with a full belly.", location: "Palo Alto", address: "408 S California Ave, Palo Alto, CA 94306", image_url: "https://cdn.menu.me/image-assets/32/79441/image.jpg", lat: "37.426617", lng: "-122.144920"},
+  {name: "El Farolito", full_description: "Let's start this journey with some delicious nachos! go for it!", location: "San Francisco", address: "2779 Mission St San Francisco, CA 94110", image_url: "http://s3-media1.fl.yelpcdn.com/bphoto/2-QB0asyxmvWzlcB1UAajw/o.jpg", lat: "37.752231", lng: "-122.418203"},
+  {name: "Tacolicius", full_description: "Why not a burrito now? Keep on going! Don't despair!", location: "San Francisco", address: "741 Valencia St, San Francisco, CA 94110", image_url: "http://s3-media2.fl.yelpcdn.com/bphoto/d3Q2eCfLHXmiTD6TY80K7g/o.jpg", lat: "37.762055", lng: "-122.421311"},
+  {name: "La Taqueria", full_description: "Now go and finish like a champ with MORE BURRITOS! You know you want it!", location: "San Francisco", address: "2889 Mission St, San Francisco, CA 94110", image_url: "http://s3-media2.fl.yelpcdn.com/bphoto/-fMB6-4lUukaRXI_Qtg1mw/o.jpg", lat: "37.751104", lng: "-122.418132"},
+  # {name: "", full_description: "", location: "", address: "", image_url: "", lat: "", lng: "-"},
 ])
 
 RoutePlace.create!([
@@ -44,17 +58,34 @@ RoutePlace.create!([
   {route_id: 2, place_id: 6, position: 2},
   {route_id: 3, place_id: 7, position: 0},
   {route_id: 3, place_id: 8, position: 1},
-  {route_id: 3, place_id: 9, position: 2}
+  {route_id: 3, place_id: 9, position: 2},
+  {route_id: 4, place_id: 10, position: 0},
+  {route_id: 4, place_id: 11, position: 1},
+  {route_id: 4, place_id: 12, position: 2}
 ])
 
 Favorite.create!([
   {user_id: 3, route_id: 2}
 ])
 
-Rating.create!([
-  {user_id: 1, route_id: 1, rating: 5.0},
-  {user_id: 2, route_id: 1, rating: 4.0},
-  {user_id: 3, route_id: 1, rating: 5.0},
-  {user_id: 2, route_id: 2, rating: 4.0},
-  {user_id: 1, route_id: 3, rating: 5.0}
-])
+routes = Route.all.pluck(:id)
+users = User.all.pluck(:id)
+
+ratings = [3.0, 4.0, 5.0]
+routes.each do |route_id|
+  users.sample(3).each do |user_id|
+    Rating.rate(user_id, route_id, ratings.sample)
+  end
+end
+
+users.each do |user_id|
+  routes.sample(2).each do |route_id|
+    Favorite.create!(user_id: user_id, route_id: route_id)
+  end
+end
+
+routes.each do |route_id|
+  users.sample(rand(0..4)).each do |user_id|
+    Outing.create!(route_id: route_id, user_id: user_id)
+  end
+end
