@@ -30,14 +30,14 @@ users = [
 ]
 
 categories = [
-  {name: "Nightlife", image_url: "https://upload.wikimedia.org/wikipedia/commons/8/8b/Nightlife-in-Vancouver.jpg"},
-  {name: "Exploring", image_url: "https://c2.staticflickr.com/6/5345/9826378233_d1843cd9fa_b.jpg"},
-  {name: "Outdoors", image_url: "https://pixabay.com/static/uploads/photo/2015/02/04/18/22/outdoors-624111_960_720.jpg"},
-  {name: "Sports", image_url: "https://pixabay.com/static/uploads/photo/2015/10/12/15/41/kayak-984566_960_720.jpg"},
-  {name: "Tourism", image_url: "https://pixabay.com/static/uploads/photo/2013/04/11/19/46/louvre-102840_960_720.jpg"},
-  {name: "Family", image_url: "https://pixabay.com/static/uploads/photo/2015/08/15/17/35/helsinki-889834_960_720.jpg"},
-  {name: "Couples", image_url: "https://pixabay.com/static/uploads/photo/2015/10/13/17/44/maple-leaf-986540_960_720.jpg"},
-  {name: "Food Discovery", image_url: "https://pixabay.com/static/uploads/photo/2015/11/05/05/26/fruits-1023722_960_720.jpg"}
+  {name: "Nightlife", image_url: "https://s3-us-west-1.amazonaws.com/jopp/nightlife.jpg"},
+  {name: "Exploring", image_url: "https://s3-us-west-1.amazonaws.com/jopp/exploring.jpg"},
+  {name: "Outdoors", image_url: "https://s3-us-west-1.amazonaws.com/jopp/outdoors.jpg"},
+  {name: "Sports", image_url: "https://s3-us-west-1.amazonaws.com/jopp/sports.jpg"},
+  {name: "Tourism", image_url: "https://s3-us-west-1.amazonaws.com/jopp/tourism.jpg"},
+  {name: "Family", image_url: "https://s3-us-west-1.amazonaws.com/jopp/famility.jpg"},
+  {name: "Couples", image_url: "https://s3-us-west-1.amazonaws.com/jopp/couples.jpg"},
+  {name: "Food Discovery", image_url: "https://s3-us-west-1.amazonaws.com/jopp/food.jpg"}
 ]
 
 places = [
@@ -135,15 +135,13 @@ end
   Route.last.dup.save
 end
 
-route = Route.first
-Place.first(3).each_with_index do |place, position|
-  RoutePlace.find_or_create_by!(route: route, place: place, position: position)
-end
+all_places = Place.all.to_a
 
-route_2 = Route.second
-# Place.last(3).each_with_index do |place, position|
-Place.all[3..5].each_with_index do |place, position|
-  RoutePlace.find_or_create_by!(route: route_2, place: place, position: position)
+Route.all.each do |route|
+  places = all_places.sample(3)
+  places.each_with_index  do |place, position|
+    RoutePlace.find_or_create_by!(route: route, place: place, position: position)
+  end
 end
 
 ratings.each do |params|

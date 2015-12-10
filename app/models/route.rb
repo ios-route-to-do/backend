@@ -12,7 +12,7 @@ class Route < ActiveRecord::Base
   end
 
   def self.trending(limit: 20)
-    routes = all.includes(:ratings).where(id: Outing.order(id: :desc).select(:route_id).distinct).limit(limit)
+    routes = all.includes(:ratings).where(id: Outing.order(id: :desc).select(:route_id)).limit(limit)
     routes = self.newly_created(limit: limit) if routes.empty?
 
     routes
