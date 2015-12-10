@@ -5,7 +5,7 @@ class Place < ActiveRecord::Base
     terms = params.delete(:query)
     raise 'query must be present' unless terms.present?
 
-    if /(awesomeness)|(working)/ =~ query
+    if /(awesomeness)|(working)/ =~ terms
       return fake_places
     end
 
@@ -56,16 +56,16 @@ class Place < ActiveRecord::Base
     response
   end
 
-  def fake_places
+  def self.fake_places
     {
       region: {
         center: {
-          latitude: 37.425342,
-          longitude: -122.136526
+          latitude: 37.424807,
+          longitude: -122.136327
         },
         span: {
-          latitude_delta: 0.2,
-          longitude_delta: 0.2
+          latitude_delta: 0.002,
+          longitude_delta: 0.002
         }
       },
       places: [
