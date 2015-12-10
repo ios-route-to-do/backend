@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   scope format: false do
-    resources :users, only: [:show] do
+    resources :users, only: [:show, :update] do
       collection do
         post 'login'
         post 'register'
