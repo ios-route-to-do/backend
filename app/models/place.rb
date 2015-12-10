@@ -5,6 +5,10 @@ class Place < ActiveRecord::Base
     terms = params.delete(:query)
     raise 'query must be present' unless terms.present?
 
+    if /(awesomeness)|(working)/ =~ query
+      return fake_places
+    end
+
     helper = YelpHelper.new
     parameters = params.slice(:latitude, :longitude, :language, :location).symbolize_keys
 
@@ -50,6 +54,59 @@ class Place < ActiveRecord::Base
     end
 
     response
+  end
+
+  def fake_places
+    {
+      region: {
+        center: {
+          latitude: 37.425342,
+          longitude: -122.136526
+        },
+        span: {
+          latitude_delta: 0.2,
+          longitude_delta: 0.2
+        }
+      },
+      places: [
+        {
+          name: 'The Garden',
+          full_description: 'asdas',
+          geo_location: nil,
+          location: 'Palo Alto',
+          address: '12pm Sunny Lunch Ave, Palo Alto, CA',
+          image_url: 'https://s3-us-west-1.amazonaws.com/jopp/place1.jpg',
+          coordinates: {
+            latitude: 37.424946,
+            longitude: -122.135997
+          }
+        },
+        {
+          name: 'The Lounge',
+          full_description: 'asdas',
+          geo_location: nil,
+          location: 'Palo Alto',
+          address: '2pm Sleepy Couch, Palo Alto, CA',
+          image_url: 'https://s3-us-west-1.amazonaws.com/jopp/place2.jpg',
+          coordinates: {
+            latitude: 37.425126,
+            longitude: -122.136373
+          }
+        },
+        {
+          name: 'Portage',
+          full_description: 'asdas',
+          geo_location: nil,
+          location: 'Palo Alto',
+          address: '10pm Hungry Town Hall, Palo Alto, CA',
+          image_url: 'https://s3-us-west-1.amazonaws.com/jopp/place3.jpg',
+          coordinates: {
+            latitude: 37.424163,
+            longitude: -122.136777
+          }
+        }
+      ]
+    }
   end
 
 end
