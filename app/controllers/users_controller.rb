@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   end
 
   def login
-    render json: User.find_by!(email: params[:email])
+    render json: User.find_by!(email: params[:email].downcase)
   end
 
   def register
