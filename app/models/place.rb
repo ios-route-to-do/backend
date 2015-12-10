@@ -5,7 +5,7 @@ class Place < ActiveRecord::Base
     terms = params.delete(:query)
     raise 'query must be present' unless terms.present?
 
-    if /(awesomeness)|(working)/ =~ terms
+    if /(awesomeness)|(working)/im =~ terms
       return fake_places
     end
 
