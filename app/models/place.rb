@@ -71,7 +71,7 @@ class Place < ActiveRecord::Base
       places: [
         {
           name: 'The Garden',
-          full_description: 'asdas',
+          full_description: 'You can enjoy the great California weather very often in the awesome Groupon Garden :D',
           geo_location: nil,
           location: 'Palo Alto',
           address: '12pm Sunny Lunch Ave, Palo Alto, CA',
@@ -83,7 +83,7 @@ class Place < ActiveRecord::Base
         },
         {
           name: 'The Lounge',
-          full_description: 'asdas',
+          full_description: "Come to the lounge to chill for a bit in a quiet and calm environment. Feel like taking a nap? Just use any of the availables sofa's!",
           geo_location: nil,
           location: 'Palo Alto',
           address: '2pm Sleepy Couch, Palo Alto, CA',
@@ -95,7 +95,7 @@ class Place < ActiveRecord::Base
         },
         {
           name: 'Portage',
-          full_description: 'asdas',
+          full_description: "Come indulge yourself in the Portage building with the best kitchen of the bay area !",
           geo_location: nil,
           location: 'Palo Alto',
           address: '10pm Hungry Town Hall, Palo Alto, CA',
