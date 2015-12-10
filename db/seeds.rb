@@ -30,7 +30,9 @@ Route.create!([
   {title: "The Beer Route", location: "San Francisco", full_description: "There are plenty of bars in SF where you can grab a beer, but less-plenty of bars in SF that you can call bona fide beer bars. Here're eight that we think not only make the cut, but make it better than anyone else.", image_url: "http://33.media.tumblr.com/b6ed58627630bb8652ab6c3068be565b/tumblr_inline_n91a7hHpIp1qb3qcf.jpg", user_id: 2},
   {title: "Sports and Fun", location: "San Francisco", full_description: "What better way to hang out with friends than doing some sports, getting dinner and then a few beers to wrap up the night? Take this route if you don't want to feel too guilty after all those beers ;)", image_url: "https://irs1.4sqi.net/img/general/width960/645907_aZJsQzJ8KzqJr3bw2BLdfuG3PEeLvzfewWfJjLQMtno.jpg", user_id: 2},
   {title: "Groupon PA and After Office", location: "Palo Alto", full_description: "Go to work and then enjoy a fun happy hour and dinner with your co-workers ;)", image_url: "https://scontent-sjc2-1.cdninstagram.com/hphotos-xat1/t51.2885-15/e15/1689568_686194394756412_1880177798_n.jpg", user_id: 3},
-  {title: "Mexican Marathon!", location: "San Francisco", full_description: "om nom nom gulp slup AWYEAAH!!!", image_url: "http://i.imgur.com/oaXQZ.jpg", user_id: 5}
+  {title: "Mexican Marathon!", location: "San Francisco", full_description: "om nom nom gulp slup AWYEAAH!!!", image_url: "http://i.imgur.com/oaXQZ.jpg", user_id: 5},
+  {title: "Unusual Stuff in SF", location: "San Francisco", full_description: "Unusual attractions and things to do in San Francisco", image_url: "http://i.imgur.com/NbK0ywA.jpg", user_id: 5},
+  # {title: "", location: "San Francisco", full_description: "", image_url: "", user_id: 5},
 ])
 
 Place.create!([
@@ -46,6 +48,9 @@ Place.create!([
   {name: "El Farolito", full_description: "Let's start this journey with some delicious nachos! go for it!", location: "San Francisco", address: "2779 Mission St San Francisco, CA 94110", image_url: "http://s3-media1.fl.yelpcdn.com/bphoto/2-QB0asyxmvWzlcB1UAajw/o.jpg", lat: "37.752231", lng: "-122.418203"},
   {name: "Tacolicius", full_description: "Why not a burrito now? Keep on going! Don't despair!", location: "San Francisco", address: "741 Valencia St, San Francisco, CA 94110", image_url: "http://s3-media2.fl.yelpcdn.com/bphoto/d3Q2eCfLHXmiTD6TY80K7g/o.jpg", lat: "37.762055", lng: "-122.421311"},
   {name: "La Taqueria", full_description: "Now go and finish like a champ with MORE BURRITOS! You know you want it!", location: "San Francisco", address: "2889 Mission St, San Francisco, CA 94110", image_url: "http://s3-media2.fl.yelpcdn.com/bphoto/-fMB6-4lUukaRXI_Qtg1mw/o.jpg", lat: "37.751104", lng: "-122.418132"},
+  {name: "Mission Dolores Cemetery", full_description: "The oldest burial ground in the city, final resting place of city founders, Ohlone natives and murderers alike", location: "San Francisco", address: "Mission Dolores, 3321 16th Street, San Francisco, California, 94110", image_url: "http://i.imgur.com/kcAoyaS.jpg", lat: "37.7643898", lng: "-122.429756"},
+  {name: "Fleishhacker Pool Ruins", full_description: "Forgotten and then destroyed by fire, this was once one of the largest saltwater swimming pools in the world", location: "San Francisco", address: "San Francisco Zoo, San Francisco, California, 94132", image_url: "http://i.imgur.com/8r6VsCQ.jpg", lat: "37.7329613", lng: "-122.5051438"},
+  {name: "Vaillancourt Fountain", full_description: "This concrete tangle of square pipes has stood as a proud thorn in the city's side since the '70s", location: "San Francisco", address: "Justin Herman Plaza, San Francisco, California, 94111", image_url: "http://i.imgur.com/2Gb2uAZ.jpg", lat: "37.7951432", lng: "-122.3973862"},
   # {name: "", full_description: "", location: "", address: "", image_url: "", lat: "", lng: "-"},
 ])
 
@@ -61,7 +66,10 @@ RoutePlace.create!([
   {route_id: 3, place_id: 9, position: 2},
   {route_id: 4, place_id: 10, position: 0},
   {route_id: 4, place_id: 11, position: 1},
-  {route_id: 4, place_id: 12, position: 2}
+  {route_id: 4, place_id: 12, position: 2},
+  {route_id: 5, place_id: 13, position: 0},
+  {route_id: 5, place_id: 14, position: 1},
+  {route_id: 5, place_id: 15, position: 2}
 ])
 
 Favorite.create!([
