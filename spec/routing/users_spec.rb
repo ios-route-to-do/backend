@@ -13,6 +13,10 @@ RSpec.describe UsersController, type: :routing do
     expect(post: '/users/register').to route_to('users#register')
   end
 
+  it 'PUT /users/1 routes to #update' do
+    expect(put: '/users/1').to route_to('users#update', id: '1')
+  end
+
   it 'GET /users/1/favorites routes to #favorites' do
     expect(get: '/users/1/favorites').to route_to('users#favorites', id: '1')
   end

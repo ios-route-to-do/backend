@@ -7,6 +7,14 @@ class UsersController < ApplicationController
     render json: User.find_by!(email: params[:email].downcase)
   end
 
+  def update
+    user = User.find(params[:id])
+
+    user.update_attributes!(update_params)
+
+    render json: user
+  end
+
   def register
     user = User.find_by(email: params[:email])
 
@@ -39,6 +47,10 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:email)
+    params.permit(:username, :location, :first_name, :last_name, :profile_image_url, :email)
+  end
+
+  def update_params
     params.permit(:username, :location, :first_name, :last_name, :profile_image_url, :email)
   end
 end
