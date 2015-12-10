@@ -33,6 +33,14 @@ RSpec.describe UsersController, type: :controller do
     end
   end
 
+  describe 'PUT #update' do
+    it 'returns http success' do
+      put :update, FactoryGirl.attributes_for(:user).merge(id: user.id, profile_image_url: 'http://somesite.net/someimage.png')
+
+      expect(response).to have_http_status(:success)
+    end
+  end
+
   describe 'GET #favorites' do
     it 'returns http success' do
       get :favorites, id: user.id
